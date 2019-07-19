@@ -1,0 +1,19 @@
+<ng-container *ngIf="data" class="container">
+  <article class="article" [routerLink]="['detail', data.id]">
+    <div class="tr">
+      <div  class="img">
+          <img 
+          *ngIf="data?.volumeInfo?.imageLinks?.smallThumbnail" 
+          [src]='data.volumeInfo.imageLinks.smallThumbnail'>
+          <img 
+          *ngIf="!data?.volumeInfo?.imageLinks?.smallThumbnail" 
+          src="../../../../assets/images/alt.jpg"
+          >
+      </div>
+      <ul class="description">
+        <li>{{data?.volumeInfo?.title}}</li>
+        <li >{{data?.volumeInfo?.authors}}</li>
+      </ul>
+    </div>
+  </article>
+</ng-container>

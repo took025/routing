@@ -1,0 +1,9 @@
+<ng-container *ngIf="data?.items">
+  <div class="items-wrapper">
+    <div class="items" *ngFor="let item of data.items">
+      <app-item [data]="item"></app-item>
+    </div>
+  </div>
+</ng-container>
+<app-loader *ngIf="load"></app-loader>
+

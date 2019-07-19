@@ -1,0 +1,67 @@
+<app-loader *ngIf="loadign"></app-loader>
+
+<div *ngIf="data" class="d-flex">
+  <div class="info-img d-flex flex-column m-1">
+    <img *ngIf="data?.volumeInfo?.imageLinks?.smallThumbnail" [src]='data.volumeInfo.imageLinks.smallThumbnail'>
+    <img *ngIf="!data?.volumeInfo?.imageLinks?.smallThumbnail" src="../../../../assets/images/alt.jpg">
+  </div>
+
+  <ul class="list-group m-3">
+    <li class="list-group-item" *ngIf="data?.volumeInfo?.averageRating && data?.volumeInfo?.ratingsCount">
+      <span>rating: </span>
+      <span>
+        {{data?.volumeInfo?.averageRating}} of
+        {{data?.volumeInfo?.ratingsCount}}</span>
+    </li>
+    <li class="list-group-item" *ngIf="data?.volumeInfo?.title">
+      <span>title: </span>
+      <span> {{data?.volumeInfo?.title}}</span>
+    </li>
+    <li class="list-group-item" *ngIf="data?.volumeInfo?.authors">
+      <span>author: </span>
+      <span> {{data?.volumeInfo?.authors}}</span>
+    </li>
+    <li class="list-group-item" *ngIf="data?.volumeInfo?.publisher">
+      <span>publisher: </span>
+      <span>{{data?.volumeInfo?.publisher}}</span>
+    </li>
+    <li class="list-group-item" *ngIf="data?.volumeInfo?.publishedDate">
+      <span>publishedDate: </span>
+      <span>{{data?.volumeInfo?.publishedDate}}</span>
+    </li>
+    <li class="list-group-item" *ngIf="data?.saleInfo?.country">
+      <span>country: </span>
+      <span>{{data?.saleInfo?.country}}</span>
+    </li>
+    <li class="list-group-item" *ngIf="data?.searchInfo?.textSnippet">
+      <span>sail info: </span> ?
+      <span>{{data?.saleInfo?.country}}</span>
+    </li>
+    <li class="list-group-item" *ngIf="data?.saleInfo?.saleability">
+      <span>sail ability: </span>
+      <span> {{data?.saleInfo?.saleability}}</span>
+    </li>
+    <li class="list-group-item" *ngIf="data?.volumeInfo?.categories">
+      <span>categoty: </span>
+      <span> {{data?.volumeInfo?.categories[0]}}</span>
+      <span> {{data?.volumeInfo?.categories[1]}}</span>
+    </li>
+    <li class="list-group-item" *ngIf="data?.volumeInfo?.contentVersion">
+      <span>contentVersion: </span>
+      <span> {{data?.volumeInfo?.contentVersion}}</span>
+    </li>
+    <li class="list-group-item" *ngIf="data?.volumeInfo?.maturityRating">
+      <span>maturityRating: </span>
+      <span>{{data?.volumeInfo?.maturityRating}}</span>
+    </li>
+    <li class="list-group-item" *ngIf="data?.searchInfo?.textSnippet">
+      <span>textSnippet: </span>
+      <span>{{data?.searchInfo?.textSnippet}}</span>
+    </li>
+    <li class="list-group-item" *ngIf="data?.volumeInfo?.description">
+        <span>description: </span>
+        <span [innerHtml]="data?.volumeInfo?.description | domsanitarizer : 'html'"></span>
+      </li>
+  </ul>
+
+</div>
